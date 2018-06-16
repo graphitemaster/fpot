@@ -11,7 +11,7 @@
 #define k_grid_max ((1 << k_grid_shift) - 1)
 #define k_grid_size (1 << (3 * k_grid_shift))
 
-/* Diliation offsets */
+/* Dilation offsets */
 static const int k_dilate_offsets[3][27] = {
 	{
 		-1, -1, -1, -1, -1, -1, -1, -1, -1,
