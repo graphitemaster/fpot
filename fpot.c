@@ -29,8 +29,7 @@ static const int k_dilate_offsets[3][27] = {
 	}
 };
 
-struct fpot
-{
+struct fpot {
 	float _min[3];
 	float _max[3];
 	float _scale;
@@ -47,22 +46,6 @@ static inline int selmin(int _a1, int _a2) {
 
 static inline int clamp(int _value, int _min, int _max) {
 	return selmax(_min, selmin(_max, _value));
-}
-
-static inline float sqr(const float _value) {
-	return _value * _value;
-}
-
-static inline float dist2(const float *const _v1, const float *const _v2) {
-	return sqr(_v2[0] - _v1[0]) + sqr(_v2[1] - _v1[1]) + sqr(_v2[2] - _v1[2]);
-}
-
-static inline float dist(const float *const _v1, const float *const _v2) {
-	return sqrtf(dist2(_v1, _v2));
-}
-
-static inline float bbox_size(const fpot *const _fpot) {
-	return dist(_fpot->_min, _fpot->_max);
 }
 
 static inline bool valid(const fpot *const _fpot, const float *const _point) {

@@ -8,22 +8,24 @@ offers a balanced performance to size ratio for a variety of data sets.
 # Usage
 ```c
 #include "fpot.h"
-// points are passed as const float*, and expects each point has three
-// components: x, y, z.
+// note: points are passed as const float*
+// note: points are tuples of (x, y, z)
 fpot *obj = NULL;
 
 // creates the fast point overlap test object
 // note: number_of_points is the number of tuples (x, y, z) and not
-// the number of scalars making up the points.
+//       the number of scalars making up the points.
 if (!fpot_create(&obj, points, number_of_points)) {
 	printf("could not create fpot (&obj is invalid or out of memory)\n");
 }
 
 // check if a point overlaps
+// note: it's safe to pass NULL
 if (fpot_overlaps(obj, point)) {
 	printf("point: (%f, %f, %f) overlaps!\n", point[0], point[1], point[2]);
 }
 
-// be sure to destroy it after:
+// be sure to destroy it after
+// note: it's safe to pass NULL
 fpot_destroy(obj);
 ```
