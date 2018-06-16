@@ -22,7 +22,7 @@ bool fpot_create(fpot **data_, const float *const _points, size_t _n_points);
 /**
  * @brief Destroy as fast point overlap test object
  * @param _fpot The opaque object to destroy
- * @note It's safe to pass NULL for @p _data
+ * @note It's safe to pass NULL for @p _fpot
  */
 void fpot_destroy(fpot *_fpot);
 
