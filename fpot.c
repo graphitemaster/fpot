@@ -112,7 +112,7 @@ bool fpot_create(fpot **data_, const float *const _points, size_t _n_points) {
 		const int x = i >> (2 * k_grid_shift);
 		const int y = (i >> k_grid_shift) & k_grid_max;
 		const int z = i & k_grid_max;
-		for (int j = 0; j < 27; j++) {
+		for (size_t j = 0; j < 27; j++) {
 			if (grid[ind_cell(x + k_dilate_offsets[0][j],
 			                  y + k_dilate_offsets[1][j],
 			                  z + k_dilate_offsets[2][j])])
@@ -127,8 +127,8 @@ bool fpot_create(fpot **data_, const float *const _points, size_t _n_points) {
 	return true;
 }
 
-void fpot_destroy(fpot *_data) {
-	free(_data);
+void fpot_destroy(fpot *_fpot) {
+	free(_fpot);
 }
 
 bool fpot_overlaps(const fpot *const _fpot, const float *const _point) {
