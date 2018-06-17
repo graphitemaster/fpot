@@ -78,7 +78,7 @@ bool fpot_create(fpot **data_, const float *const _points, size_t _n_points) {
 		return false;
 	}
 
-	data->_grid = (char *)data + 1;
+	data->_grid = (char *)(data + 1);
 	if (_n_points == 0) {
 		memset(data->_min, 0, sizeof data->_min);
 		memset(data->_max, 0, sizeof data->_max);
